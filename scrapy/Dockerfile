@@ -1,6 +1,4 @@
-ARG BASEIMAGE_VERSION=${BASEIMAGE_VERSION}
-
-FROM phusion/baseimage:${BASEIMAGE_VERSION}
+FROM phusion/baseimage:0.10.1
 
 MAINTAINER Yifans_Z <168@yifans.com>
 
