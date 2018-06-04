@@ -1,0 +1,19 @@
+### Paths #################################################
+
+# Point to the path of your applications code on your host
+APP_CODE_PATH_HOST=../
+
+# Point to where the `APP_CODE_PATH_HOST` should be in the container. You may add flags to the path `:cached`, `:delegated`. When using Docker Sync add `:nocopy`
+APP_CODE_PATH_CONTAINER=/var/www:cached
+
+
+### BaseImage Version ###########################################
+BASEIMAGE_VERSION=0.10.1
+
+### Drivers ################################################
+
+# All volumes driver
+VOLUMES_DRIVER=local
+
+# All Networks driver
+NETWORKS_DRIVER=bridge
