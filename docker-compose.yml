@@ -13,11 +13,23 @@ volumes:
 services:
 
 ### Workspace Utilities ##################################
-    scrapy:
-        build:
-            context: ./scrapy
-        volumes:
-            - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}
-        networks:
-            - frontend
-            - backend
+    workspace:
+      build:
+        context: ./workspace
+      volumes:
+        - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}
+      extra_hosts:
+        - "dockerhost:${DOCKER_HOST_IP}"
+      ports:
+        - "${WORKSPACE_SSH_PORT}:22"
+      tty: true
+      networks:
+        - frontend
+        - backend
+
+    python:
+      build:
+        context: ./python
+      tty: true
+      networks:
+        - backend
