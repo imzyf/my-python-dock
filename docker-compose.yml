@@ -30,6 +30,9 @@ services:
     python:
       build:
         context: ./python
+      volumes:
+        - ${APP_CODE_PATH_HOST}:/usr/src/app
       tty: true
       networks:
+        - frontend
         - backend
